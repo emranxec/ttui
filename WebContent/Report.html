@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Report</title>
+</head>
+<body>
+<div class="row">
+<h1>Additional hours tracker</h1>
+
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+        <label for="first_name">First Name</label>
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          
+        </div>
+        <div class="input-field col s6">
+         <label for="last_name">Date</label>
+          <input type="date" class="datepicker">
+         
+        </div>
+      </div>
+     
+      <div class="row">
+        <label>Type</label>
+  <select class="browser-default" >
+    <option value="" disabled selected>Choose your option</option>
+    <option value="1">on call</option>
+    <option value="2">comp-off</option>
+    <option value="3">project</option>
+  </select>
+      </div>
+         <div class="row">
+        <label>Details</label>
+  <select class="browser-default" >
+    <option value="" disabled selected>Choose your option</option>
+    <option value="1">Weekend support</option>
+    <option value="2">Comp-off availed</option>
+    <option value="3">others</option>
+  </select>
+  
+   <div class="row">
+  
+      <div class="row">
+        <div class="input-field col s12">
+        <label for="textarea1">Textarea</label>
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          
+        </div>
+      </div>
+    
+  </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+         <label for="text">+hours logged</label>
+          <input id="text" type="text" class="validate">
+         
+        </div>
+        <div class="input-field col s12">
+        <label for="text">+hours utilized</label>
+          <input id="text" type="text" class="validate">
+          
+        </div>
+      </div>
+          <div class="row">
+        <div class="input-field col s12">
+          <button class="btn waves-effect waves-light" type="submit" name="action">
+    <i class="material-icons right">send</i>
+  </button>
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</body>
+</html>
