@@ -11,6 +11,7 @@ function changetextbox(){
 		if(document.support.detail.value == 'Weekend support'){
 			
 			document.support.work.disabled=0;
+			document.support.task.disabled=0;
 			document.support.compoff.disabled=1;
 			document.support.textarea1.disabled=1;
 		}
@@ -18,19 +19,21 @@ function changetextbox(){
 		else if(document.support.detail.value == 'Public Holiday Support -on-call'){
 			
 			document.support.work.disabled=0;
+			document.support.task.disabled=0;
 			document.support.compoff.disabled=1;
-			document.support.textarea1.disabled=1;
+			document.support.other.disabled=1;
 		}
 		
 		else if(document.support.detail.value == 'Comp-off availed' ){
 			
 			document.support.compoff.disabled=0;
 		document.support.work.disabled=1;
-		document.support.textarea1.disabled=1;
+		document.support.other.disabled=1;
 		}
 		else if (document.support.detail.value == 'others' ){
 			
-			document.support.textarea1.disabled=0;
+			document.support.other.disabled=0;
+			document.support.task.disabled=0;
 			document.support.work.disabled=0;
 			document.support.compoff.disabled=1;
 			}
@@ -38,7 +41,8 @@ function changetextbox(){
 		else{
 			document.support.work.disabled=1;
 		document.support.compoff.disabled=1;
-		document.support.textarea1.disabled=1;
+		document.support.other.disabled=1;
+		document.support.task.disabled=1;
 	}
 	
 }
@@ -56,6 +60,7 @@ function changetextbox(){
     background: #f4f7f8;
     border-radius: 8px;
     font-family: Georgia, "Times New Roman", Times, serif;
+    float:center;
 }
 .form-style-5 fieldset{
     border: none;
@@ -144,6 +149,7 @@ function changetextbox(){
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
     float:left;
+    
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
@@ -156,11 +162,12 @@ function changetextbox(){
 </head>
 <body>
 <div class="form-style-5">
+<H1 align="center"><span class="number">TS</span>TSD-IDC </H1>
 <form name="support">
 <fieldset>
 <legend><span class="number">1</span>Support Info</legend>
 <input type="text" name="field1" placeholder="Your Name *" id="name">
-<input type="date" name="field2" placeholder="Your Email *">
+<input type="date" name="field2">
 
 
 
@@ -172,7 +179,7 @@ function changetextbox(){
   <option value="others">Other</option>
 
 </select> 
-
+<legend><span class="number">2</span>Work Details</legend>
 <label for="detail">Details:</label>
 <select id="detail" name="detail" onChange="changetextbox()">
  <option value="Weekend support">Weekend support</option>
@@ -181,12 +188,18 @@ function changetextbox(){
   <option value="others">Other</option>
 </select>     
 
-<textarea id="textarea1" name="textarea1" disabled placeholder="Other support Details"></textarea>
+<textarea id="textarea1" name="other" disabled placeholder="Other support Details"></textarea>
+
+
+<textarea id="textarea1" name="task" disabled placeholder="Issue/task"></textarea>
 </fieldset>
 <fieldset>
-<legend><span class="number">2</span> Addtional hours</legend>
-<textarea name="work" disabled placeholder="+hours logged"></textarea>
-<textarea name="compoff" disabled placeholder="+hours utilized"></textarea>
+<legend><span class="number">3</span> Addtional hours logged</legend>
+<input type="number" name="work" disabled placeholder="0-24" id="work">
+
+<legend><span class="number">4</span>comp-off hours utilized</legend>
+<input type="number" name="compoff" disabled placeholder="0-24" id="compoff">
+
 </fieldset>
 <input type="submit" value="Apply" id="submit" />
 
