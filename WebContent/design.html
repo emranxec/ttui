@@ -47,6 +47,66 @@ function changetextbox(){
 	
 }
 
+function add() {
+	 
+	
+	
+	var element = document.createElement("input");
+	    
+	    //Assign different attributes to the element.
+	    element.setAttribute("type", 'radio');
+	    element.setAttribute("value", 'task');
+	    element.setAttribute("name", 'job');
+	    
+	    
+
+	 
+	    var foo = document.getElementById("fooBar");
+	   ;
+	 
+	    //Append the element in page (in span).
+	    foo.appendChild(element);
+	    var textnode = document.createTextNode("task");  
+		foo.appendChild(textnode);
+	 
+
+	var element = document.createElement("input");
+
+	//Assign different attributes to the element.
+	element.setAttribute("type", 'radio');
+	element.setAttribute("value", 'issue');
+	element.setAttribute("name", 'job');
+
+
+	//Append the element in page (in span).
+	foo.appendChild(element);
+	var textnode = document.createTextNode("issue");  
+	foo.appendChild(textnode);
+	
+
+	
+	var input1 = document.createElement("input");
+	input1.setAttribute("type", 'number');
+	input1.setAttribute("style", 'width:6%;');
+	input1.placeholder="hours"
+	foo.appendChild(input1);
+	
+	
+
+	var input = document.createElement("input");
+	input.setAttribute("type", 'text');
+	input.setAttribute("style", 'width:16.5%;');
+	input.placeholder="comments"
+	
+	foo.appendChild(input); 
+
+	
+	
+	var br = document.createElement("br");
+	foo.appendChild(br);
+	
+	}
+
 </script>
 <style>
 <style type="text/css">
@@ -61,6 +121,7 @@ function changetextbox(){
     border-radius: 8px;
     font-family: Georgia, "Times New Roman", Times, serif;
     float:center;
+
 }
 .form-style-5 fieldset{
     border: none;
@@ -91,7 +152,7 @@ function changetextbox(){
     margin: 0;
     outline: 0;
     padding: 7px;
-    width: 50%;
+    width: 30%;
     box-sizing: border-box; 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box; 
@@ -132,8 +193,7 @@ function changetextbox(){
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-5 input[type="submit"],
-.form-style-5 input[type="button"]
+.form-style-5 input[type="submit"]
 {
     position: relative;
     display: block;
@@ -144,9 +204,26 @@ function changetextbox(){
     font-size: 18px;
     text-align: center;
     font-style: normal;
-    width: 50%;
+    width: 30%;
     border: 1px solid #16a085;
     border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+    float:left;
+    
+}
+.form-style-5 input[type="button"]
+{
+    position: relative;
+
+   padding: 5px;
+    color: #FFF;
+    margin: 0 auto;
+    background: #1abc9c;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 10%;
+  
     margin-bottom: 10px;
     float:left;
     
@@ -160,13 +237,16 @@ function changetextbox(){
 </style>
 
 </head>
-<body>
+<body >
+
 <div class="form-style-5">
+
 <H1 align="center"><span class="number">TS</span>TSD-IDC </H1>
 <form name="support">
+
 <fieldset>
 <legend><span class="number">1</span>Support Info</legend>
-<input type="text" name="field1" placeholder="Your Name *" id="name">
+<input type="text" name="field1" placeholder="Your Name *" id="name"><br>
 <input type="date" name="field2">
 
 
@@ -181,17 +261,24 @@ function changetextbox(){
 </select> 
 <legend><span class="number">2</span>Work Details</legend>
 <label for="detail">Details:</label>
-<select id="detail" name="detail" onChange="changetextbox()">
+<select id="detail" name="detail" style="width:20%" onChange="changetextbox()">
  <option value="Weekend support">Weekend support</option>
   <option value="Comp-off availed">Comp-off availed</option>
   <option value="Public Holiday Support -on-call">Public Holiday Support -on-call</option>
   <option value="others">Other</option>
 </select>     
 
-<textarea id="textarea1" name="other" disabled placeholder="Other support Details"></textarea>
+<!-- <textarea id="textarea1" name="other" disabled placeholder="Other support Details"></textarea> -->
 
+<INPUT type="button" value="Add Data" onclick="add()"/><br>
 
-<textarea id="textarea1" name="task" disabled placeholder="Issue/task"></textarea>
+<h3>Click Add button to add more data</h3>
+ 
+<div id="fooBar">&nbsp;<br></div>
+
+<br>
+
+<!-- <textarea id="textarea1" name="task" disabled placeholder="Issue/task"></textarea> -->
 </fieldset>
 <fieldset>
 <legend><span class="number">3</span> Addtional hours logged</legend>
