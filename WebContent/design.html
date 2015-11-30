@@ -6,95 +6,96 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 
+
+
 function changetextbox(){
 	
 		if(document.support.detail.value == 'Weekend support'){
 			
 			document.support.work.disabled=0;
-			document.support.task.disabled=0;
+			
 			document.support.compoff.disabled=1;
-			document.support.textarea1.disabled=1;
+			
 		}
 		
 		else if(document.support.detail.value == 'Public Holiday Support -on-call'){
 			
 			document.support.work.disabled=0;
-			document.support.task.disabled=0;
+			
 			document.support.compoff.disabled=1;
-			document.support.other.disabled=1;
+			
 		}
 		
 		else if(document.support.detail.value == 'Comp-off availed' ){
 			
 			document.support.compoff.disabled=0;
-		document.support.work.disabled=1;
-		document.support.other.disabled=1;
-		}
-		else if (document.support.detail.value == 'others' ){
 			
-			document.support.other.disabled=0;
-			document.support.task.disabled=0;
-			document.support.work.disabled=0;
-			document.support.compoff.disabled=1;
-			}
+		document.support.work.disabled=1;
+		
+		}
 		
 		else{
 			document.support.work.disabled=1;
 		document.support.compoff.disabled=1;
-		document.support.other.disabled=1;
-		document.support.task.disabled=1;
+		
 	}
 	
 }
 
+var n=0;
+var radio1,radio2,textnode1,textnode2,input,input1,foo,br;
 function add() {
-	 
 	
+	n+=1;
 	
-	var element = document.createElement("input");
+	 radio1 = document.createElement("input");
 	    
 	    //Assign different attributes to the element.
-	    element.setAttribute("type", 'radio');
-	    element.setAttribute("value", 'task');
-	    element.setAttribute("name", 'job');
+	    radio1.setAttribute("type", 'radio');
+	    radio1.setAttribute("value", 'task');
+	    radio1.setAttribute("name", "job" + n);
 	    
 	    
 
 	 
-	    var foo = document.getElementById("fooBar");
+	     foo = document.getElementById("fooBar");
 	   ;
 	 
 	    //Append the element in page (in span).
-	    foo.appendChild(element);
-	    var textnode = document.createTextNode("task");  
-		foo.appendChild(textnode);
+	    foo.appendChild(radio1);
+	     textnode1 = document.createTextNode("task");  
+		foo.appendChild(textnode1);
 	 
 
-	var element = document.createElement("input");
+	 radio2 = document.createElement("input");
 
 	//Assign different attributes to the element.
-	element.setAttribute("type", 'radio');
-	element.setAttribute("value", 'issue');
-	element.setAttribute("name", 'job');
+	radio2.setAttribute("type", 'radio');
+	radio2.setAttribute("value", 'issue');
+	radio2.setAttribute("name", "job" + n);
 
 
 	//Append the element in page (in span).
-	foo.appendChild(element);
-	var textnode = document.createTextNode("issue");  
-	foo.appendChild(textnode);
+	foo.appendChild(radio2);
+	 textnode2 = document.createTextNode("issue");  
+	foo.appendChild(textnode2);
 	
 
 	
-	var input1 = document.createElement("input");
+	 input1 = document.createElement("input");
 	input1.setAttribute("type", 'number');
+	input1.setAttribute("value", '0');
+	input1.setAttribute("name", "time" + n);
+	input1.setAttribute("id", "time" + n);
 	input1.setAttribute("style", 'width:6%;');
 	input1.placeholder="hours"
 	foo.appendChild(input1);
 	
 	
-
-	var input = document.createElement("input");
+	
+	input = document.createElement("input");
 	input.setAttribute("type", 'text');
+	input.setAttribute("name", "comment" + n);
 	input.setAttribute("style", 'width:16.5%;');
 	input.placeholder="comments"
 	
@@ -102,11 +103,46 @@ function add() {
 
 	
 	
-	var br = document.createElement("br");
+	 br = document.createElement("br");
 	foo.appendChild(br);
 	
-	}
+	 job="job";
+	 time="time";
+	 comment="comment";
 
+
+	
+	}
+	
+	function remov(){
+
+	 while(foo.lastChild) {
+		 
+		        foo.removeChild(foo.lastChild)
+		        
+		    }
+
+
+		 n=0;
+		
+		
+		
+		
+	}
+// 	function time(){
+		
+		
+// 		 time1=document.getElementById("time1").value;
+// 		 time2=document.getElementById("time2").value;
+// 		 time3=document.getElementById("time3").value;
+// 		 time4=document.getElementById("time4").value;
+// 		 time5=document.getElementById("time5").value;
+// 		 time6=document.getElementById("time6").value;
+// 		alert(result);
+// 		var result = Number(time1) + Number(time2) +Number(time3) + Number(time4) + Number(time5) +Number(time6);
+// 		document.support.work.value=result;
+		
+// 	}
 </script>
 <style>
 <style type="text/css">
@@ -222,7 +258,7 @@ function add() {
     font-size: 18px;
     text-align: center;
     font-style: normal;
-    width: 10%;
+    width: 15%;
   
     margin-bottom: 10px;
     float:left;
@@ -234,6 +270,8 @@ function add() {
     background: #109177;
   
 }
+
+
 </style>
 
 </head>
@@ -254,40 +292,39 @@ function add() {
 <label for="plan">Type</label>
 <select id="plan" name="plan" >
 <option value="on call">on call</option>
-  <option value="comp-off">comp-off</option>
-  <option value="project">project</option>
-  <option value="others">Other</option>
-
-</select> 
-<legend><span class="number">2</span>Work Details</legend>
-<label for="detail">Details:</label>
-<select id="detail" name="detail" style="width:20%" onChange="changetextbox()">
- <option value="Weekend support">Weekend support</option>
-  <option value="Comp-off availed">Comp-off availed</option>
-  <option value="Public Holiday Support -on-call">Public Holiday Support -on-call</option>
-  <option value="others">Other</option>
-</select>     
-
-<!-- <textarea id="textarea1" name="other" disabled placeholder="Other support Details"></textarea> -->
-
-<INPUT type="button" value="Add Data" onclick="add()"/><br>
-
-<h3>Click Add button to add more data</h3>
+<option value="project">project</option>
+<option value="comp-off">comp-off</option>
  
-<div id="fooBar">&nbsp;<br></div>
-
-<br>
-
-<!-- <textarea id="textarea1" name="task" disabled placeholder="Issue/task"></textarea> -->
+</select> 
 </fieldset>
 <fieldset>
-<legend><span class="number">3</span> Addtional hours logged</legend>
-<input type="number" name="work" disabled placeholder="0-24" id="work">
+<legend><span class="number">2</span>Addtional hours logged</legend>
+<label for="detail">Details:</label>
+<select id="detail" name="detail" onChange="changetextbox()">
+ <option value="Weekend support">Weekend support</option>
+  <option value="Public Holiday Support -on-call">Public Holiday Support -on-call</option>
+  <option value="Comp-off availed">Comp-off availed</option>
+</select>    
 
-<legend><span class="number">4</span>comp-off hours utilized</legend>
+<br>
+<INPUT type="button" id="add" value="Add efforts" onclick="add()"/><INPUT type="button" id="value="remove efforts" onclick="remov()"/><br><br>
+
+ <h3>Click Add button to add more data</h3>
+
+<div id="fooBar">&nbsp;</div>
+<legend>Total efforts</legend>
+<input type="number" name="work" placeholder="0-24" id="work" > 
+
+
+</fieldset>
+<fieldset>
+
+<legend><span class="number">3</span>comp-off hours utilized</legend>
+
 <input type="number" name="compoff" disabled placeholder="0-24" id="compoff">
 
 </fieldset>
+
 <input type="submit" value="Apply" id="submit" />
 
 </form>
