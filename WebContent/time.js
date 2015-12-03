@@ -84,8 +84,9 @@ function GetDynamicTextBox(value) {
 	    			document.support.work.disabled=0;
 	    			
 	    			document.support.compoff.disabled=1;
-	    			document.getElementById("btnAdd").disabled=0;
-	    			
+	    		
+	    			document.getElementById("btnAdd").style.display = "block";
+	    			document.getElementById("click").style.display = "block";
 	    			
 	    		}
 	    		
@@ -94,7 +95,8 @@ function GetDynamicTextBox(value) {
 	    			document.support.work.disabled=0;
 	    			
 	    			document.support.compoff.disabled=1;
-	    			document.getElementById("btnAdd").disabled=0;
+	    			document.getElementById("btnAdd").style.display = "block";
+	    			document.getElementById("click").style.display = "block";
 	    			
 	    		}
 	    		
@@ -103,7 +105,8 @@ function GetDynamicTextBox(value) {
 	    			document.support.compoff.disabled=0;
 	    			
 	    		document.support.work.disabled=1;
-	    		document.getElementById("btnAdd").disabled=1;
+	    		document.getElementById("btnAdd").style.display = "none";
+	    		document.getElementById("click").style.display = "none";
 	    		
 	    		 while(fooBar.lastChild) {
 		    		 
@@ -121,6 +124,8 @@ function GetDynamicTextBox(value) {
 	    			document.support.work.disabled=1;
 	    		document.support.compoff.disabled=1;
 	    		document.getElementById("btnAdd").disabled=1;
+	    		document.getElementById("btnAdd").style.display = "block";
+    			document.getElementById("click").style.display = "block";
 	    		
 	    	}
 	    	
