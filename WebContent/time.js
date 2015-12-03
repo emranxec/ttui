@@ -1,6 +1,12 @@
 var n=0;
 var radio1,radio2,textnode1,textnode2,input,input1,foo,br;
 
+webshim.setOptions('forms-ext', {
+    //replaceUI: 'auto',
+    types: 'date'
+});
+webshim.polyfill('forms forms-ext');
+
 $(function () {
 	
     $("#btnAdd").bind("click", function () {
@@ -78,6 +84,8 @@ function GetDynamicTextBox(value) {
 	    			document.support.work.disabled=0;
 	    			
 	    			document.support.compoff.disabled=1;
+	    			document.getElementById("btnAdd").disabled=0;
+	    			
 	    			
 	    		}
 	    		
@@ -86,6 +94,7 @@ function GetDynamicTextBox(value) {
 	    			document.support.work.disabled=0;
 	    			
 	    			document.support.compoff.disabled=1;
+	    			document.getElementById("btnAdd").disabled=0;
 	    			
 	    		}
 	    		
@@ -94,12 +103,24 @@ function GetDynamicTextBox(value) {
 	    			document.support.compoff.disabled=0;
 	    			
 	    		document.support.work.disabled=1;
+	    		document.getElementById("btnAdd").disabled=1;
+	    		
+	    		 while(fooBar.lastChild) {
+		    		 
+	    		        fooBar.removeChild(fooBar.lastChild)
+	    		        
+	    		    }
+
+
+	    		 n=0;
+	    		
 	    		
 	    		}
 	    		
 	    		else{
 	    			document.support.work.disabled=1;
 	    		document.support.compoff.disabled=1;
+	    		document.getElementById("btnAdd").disabled=1;
 	    		
 	    	}
 	    	
