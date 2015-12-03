@@ -3,69 +3,75 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>TDS</title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <!-- cdn for modernizr, if you haven't included it already -->
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<script
+	src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 <!-- polyfiller file to detect and load polyfills -->
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <script type="text/javascript" src="time.js"></script>
 <link rel="stylesheet" type="text/css" href="time.css">
 
 </head>
-<body >
+<body onload="defaul()">
 
-<div class="form-style-5">
+	<div class="form-style-5">
 
-<H1 align="center"><span class="number">TS</span>TSD-IDC </H1>
-<form name="support">
+		<H1 align="center">
+			<span class="number">TS</span>TSD-IDC
+		</H1>
+		<form name="support" action="tsd.java" method="post">
 
-<fieldset>
-<legend><span class="number">1</span>Support Info</legend>
-<input type="text" name="name" placeholder="Your Name *" id="name"><br>
-<input type="date" name="date" placeholder="YYYY-MM-DD">
+			<fieldset>
+				<legend>
+					<span class="number">1</span>Support Info
+				</legend>
+				<input type="text" name="name" placeholder="Your Name *" id="name"><br>
+				<input type="date" name="date" placeholder="YYYY-MM-DD"> <label
+					for="plan">Type</label> <select id="plan" name="plan"
+					onchange="configureDropDownLists(this,document.getElementById('detail'))">
+					<option value="">Select</option>
+					<option value="oncall">on call</option>
+					<option value="project">project</option>
+					<option value="compoff">comp-off</option>
+				</select> <label for="detail">Details:</label> <select id="detail"
+					name="detail" onChange="changetextbox()">
+					<option value="Weekend support">Weekend support</option>
+					<option value="Public Holiday Support -on-call">Public
+						Holiday Support -on-call</option>
+					<option value="Comp-off availed">Comp-off availed</option>
+				</select>
+			</fieldset>
 
-
-
-<label for="plan">Type</label>
-<select id="plan" name="plan" onchange="configureDropDownLists(this,document.getElementById('detail'))">
-<option value="">Select</option>
-<option value="oncall">on call</option>
-<option value="project">project</option>
-<option value="compoff">comp-off</option>
- 
-</select> 
-</fieldset>
-<fieldset>
-<legend><span class="number">2</span>Addtional hours logged</legend>
-<label for="detail">Details:</label>
-<select id="detail" name="detail" onChange="changetextbox()">
- <option value="Weekend support">Weekend support</option>
-  <option value="Public Holiday Support -on-call">Public Holiday Support -on-call</option>
-  <option value="Comp-off availed">Comp-off availed</option>
-</select>    
-
-<br>
-<INPUT type="button" value="Add efforts" id="btnAdd" /><br><br>
-
- <h3 id="click">Click Add button to add more data</h3>
-
-<div id="fooBar">&nbsp;</div>
-<legend>Total efforts</legend>
-<input type="number" name="work" placeholder="0-24" id="work" > 
+			<fieldset id="effort">
+				<legend>
+					<span class="number">2</span>Addtional hours logged
+				</legend>
 
 
-</fieldset>
-<fieldset>
+				<INPUT type="button" value="Add efforts" id="btnAdd" /><br>
+				<br>
+				<br>
 
-<legend><span class="number">3</span>comp-off hours utilized</legend>
+				<div id="fooBar"></div>
 
-<input type="number" name="compoff" disabled placeholder="0-24" id="compoff">
 
-</fieldset>
+			</fieldset>
+			<fieldset id="comp">
 
-<input type="submit" value="Apply" id="btnGet" />
+				<legend>
+					<span class="number">3</span>comp-off hours utilized
+				</legend>
 
-</form>
-</div>
+				<input type="number" name="compoff" value="9" disabled
+					placeholder="0-24" id="compoff">
+
+			</fieldset>
+
+			<input type="submit" value="Apply" id="submit" />
+
+		</form>
+	</div>
 </body>
 </html>
