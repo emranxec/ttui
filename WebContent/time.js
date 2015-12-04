@@ -30,22 +30,18 @@ function GetDynamicTextBox(value) {
 	return 'task'
 			+ '<input type="radio" value="task"  name="job'
 			+ n
-			+ ' "/>'
+			+ '"/>'
 			+ 'issue'
 			+ '<input type="radio" value="issue" name="job'
 			+ n
-			+ ' "/>'
-			+ '<input id="time" name = "time'
-			+ n
-			+ ' " type="number" style="width:15%" placeholder="time" value = "'
+			+ '"/>'
+			+ '<input id="time" name = "time" type="number" style="width:15%" placeholder="time" value = "'
 			+ value
 			+ '" />&nbsp;'
-			+ '<input name = "comment'
-			+ n
-			+ ' " type="text" style="width:56%" placeholder="Task" value = "'
+			+ '<input name = "comment" type="text" style="width:56%" placeholder="Task" value = "'
 			+ value
 			+ '" />&nbsp;'
-			+ '<input type="button" value="X" style="width:7%"  class="remove" />'
+			+ '<input type="button" value="X" name="x" style="width:7%"  class="remove" />'
 }
 
 function configureDropDownLists(ddl1, ddl2) {
